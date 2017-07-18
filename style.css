@@ -5,7 +5,7 @@ enclosed by different characters than HTML comments. */
 You can apply CSS elements to entire HTML classes. Review Lesson 1.3
 if you need a refresher about how to do this. */
 
-*{
+*.Body{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -13,17 +13,17 @@ if you need a refresher about how to do this. */
     font-family: Courier New, Courier, monospace;
 }
 
-*.Title{
+.Title{
     text-align: center;
     background: #f9efff;
 }
 
-*.AboutMe{
+.AboutMe{
     display: flex;
     line-height: 2;
 }
 
-*.TextMain{
+.TextMain{
     background: #e5f5fa;
     text-align: center;
 }
@@ -40,14 +40,14 @@ if you need a refresher about how to do this. */
 /*}*/
 
 
-*.Picture{
+.Picture{
     background: #e5f5fa;
     width: 338px;
     height: 507px;
     float: left;
 }
 
-*.Picture2{
+.Picture2{
     background: #e5f5fa;
     width: 338px;
     height: 507px;
@@ -56,26 +56,26 @@ if you need a refresher about how to do this. */
 
 }
 
-*.CenterText{
+.CenterText{
     text-align: center;
 }
 
-*.Info{
+.Info{
     max-width: 100%;
     padding: 0 0 0 1%;
 }
 
-*.Interests{
+.Interests{
     padding: 1px;
 }
 
-*.Music{
+.Music{
     width: 50%;
     line-height: 1.5;
     float: left;
 }
 
-*.Art{
+.Art{
     width: 50%;
     line-height: 1.5;
     float: right;
