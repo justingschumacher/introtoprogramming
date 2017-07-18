@@ -74,6 +74,10 @@ if you need a refresher about how to do this. */
     float: left;
 }
 
+.arts{
+  text-align: center;
+}
+
 .art{
     width: 50%;
     line-height: 1.5;
