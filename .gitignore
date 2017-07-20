@@ -1,2 +1,5 @@
 *.ipynb
 .ipynb_checkpoints
+IPND_materials
+madlibs.py
+.DS_Store
