@@ -55,10 +55,14 @@ def start_test():
     for x in [1, 2, 3, 4]:
         print("What is the answer for blank ", x, "?")
         useranswer = input("")
-        if useranswer in testanswers:
+        if testanswers[x-1] in useranswer:
             test_current = test_current.split()
-            #test_current = word_replace(useranswer, testanswers)
-            print(test_current)
+            for word in test_current:
+                if word in useranswer:
+                    word.replace(useranswer)
+                print(test_current)
+        else:
+            print("incorrect")
 
 
 
