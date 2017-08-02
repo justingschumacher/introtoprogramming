@@ -16,11 +16,6 @@
 # To help you get started, we've provided a sample paragraph that you can use when testing your code.
 # Your game should consist of 3 or more levels, so you should add your own paragraphs as well!
 
-sample = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
-adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
-don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
-tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
-
 # The answer for ___1___ is 'function'. Can you figure out the others?
 
 # We've also given you a file called fill-in-the-blanks.pyc which is a working version of the project.
@@ -39,18 +34,29 @@ tuple, and ___4___ or can be more complicated such as objects and lambda functio
 import random
 
 # Predefined tests section
-test1 = "The __1__, __2__"
-test2 = "The __3__, __4__"
-test3 = "The __5__, __6__"
-test4 = "The __7__, __8__"
-test5 = "The __9__, __10__"
+test1 = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
+adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
+don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
+tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
+test2 = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
+adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
+don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
+tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
+test3 = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
+adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
+don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
+tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
+test4 = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
+adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
+don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
+tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
+test5 = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
+adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you
+don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary,
+tuple, and ___4___ or can be more complicated such as objects and lambda functions.'''
 
 # Predefined answers dictionary. I decided on dictionary to exercise that knowledge, and because it seemed appropriate.
-test1answers = {1: 'a', 2: 'b'}
-test2answers = {3: 'c', 4: 'd'}
-test3answers = {5: 'e', 6: 'f'}
-test4answers = {7: 'g', 8: 'h'}
-test5answers = {9: 'i', 10: 'j'}
+testanswers = {1: 'function', 2: 'values', 3: 'None', 4: 'list', 5: 'e', 6: 'f', 7: 'g', 8: 'h', 9: 'i', 10: 'j'}
 
 # Lists and variables for defining, selecting and managing number of games
 tests = [test1, test2, test3, test4, test5]
@@ -61,7 +67,7 @@ number_of_games = None
 
 # This will get the information to start the game
 def setup_game():
-    answertest = False #First, get the number of games to play from a random pool of games, and validate input
+    answertest = False # First, get the number of games to play from a random pool of games, and validate input
     while answertest is False:
         number_of_games = 3  # raw_input("How many games do you want to play? Choose 1-3, or q to quit: " )
         try:
@@ -69,7 +75,7 @@ def setup_game():
                 print("Bye!")
                 break
         except:
-            if isinstance(number_of_games, str): #int(number_of_games):
+            if isinstance(number_of_games, str): # int(number_of_games):
                 print("Choose 1-3, or q to quit")
                 setup_game()
             else:
@@ -78,34 +84,30 @@ def setup_game():
                 return testsSelected
 
 
-userinput = "a"  # raw_input("What is the answer to blank " + iterator + "?")
-testanswer = test1answers
-#print(word_in_list(userinput, testanswer))
-
 # This will find the word in the answers dictionary and provide feedback
-def word_in_list(response, testanswer):
+def word_replace(test, answerlocation, answer):
     pass
 
 def fill_in_the_blanks(questions, answers):
     pass
 
 
-def start_test(tests, testanswer):
+def start_test(tests):
     currenttest = []
     currenttest = tests[0]
-    testquestions = [int(s) for s in tests[0] if s.isdigit()]
-    print(testquestions)
-    iterator = 1 #raw_input("What is the answer to blank " + testquestions[0] + "?"
-    response = 1
-    for k, v in testanswer.items():
-        if k is iterator:
+    testquestions = [int(s) for s in tests[0].split("__") if s.isdigit()]
+    response = "a" # raw_input("What is the answer to blank " + tests[0] + "?"
+    print("start", testquestions[0])
+    for k, v in testanswers.items():
+        while k is testquestions[0]:
+            print(k, v)
             if response is v:
-                print("correct!")
-            else:
-                print("incorrect")
-    print(currenttest)
-    print(tests)
+                currenttest = word_replace(currenttest, k, v)
+            break
+
+    print("end", currenttest)
+    print("end", tests)
 
 # Select the test, ask for answer, while answer is false retry. When all questions are correct list.remove(test)
 
-start_test(setup_game(), testanswer)
+start_test(setup_game())
