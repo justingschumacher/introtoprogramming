@@ -1,3 +1,7 @@
+import numpy
+import scipy
+import matplotlib
+
 
 # Predefined tests section
 test1 = '''A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by
@@ -47,22 +51,28 @@ def word_replace(word, answer_list):
             return answer
     return None
 
+def get_answer(blank_number):
+    print("What is your answer for ", blank_number, "?")
+    try:
+        useranswer = input("")
+        int(useranswer)
+    except:
+        print("Huh")
+
+def get_tests():
+
+
 def start_test():
     tests = setup_game()
     test_current = tests.pop()
-    useranswer = ""
     print(test_current)
-    for x in [1, 2, 3, 4]:
-        print("What is the answer for blank ", x, "?")
-        useranswer = input("")
-        if testanswers[x-1] in useranswer:
-            test_current = test_current.split()
-            for word in test_current:
-                if word in useranswer:
-                    word.replace(useranswer)
-                print(test_current)
-        else:
-            print("incorrect")
+    answer1 = get_answer(1)
+    seperate_string = test_current.split()
+    for word in seperate_string:
+        replacement = word_replace(answer1, testanswers)
+        if replacement != None:
+            u
+
 
 
 
