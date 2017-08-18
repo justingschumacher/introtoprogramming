@@ -2,7 +2,7 @@ test1 = "1Abc __1__ defg __2__ hijk __3__ lmno __4__"
 test2 = "2Abc __1__ defg __2__ hijk __3__ lmno __4__"
 test3 = "3Abc __1__ defg __2__ hijk __3__ lmno __4__"
 
-answers = ["function", "variable", "class", "object"]
+answerlist = ["function", "variable", "class", "object"]
 
 difficulty = ""
 
@@ -26,17 +26,29 @@ def get_difficulty():
         except:
             print("Not an expected input, goodbye")
             break
+    return difficulty
 
 def pick_tests(difficulty):
     tests = []
     if difficulty == "easy":
         tests = [test1]
+        return tests
     elif difficulty == "medium":
         tests = [test1, test2]
+        return tests
     elif difficulty == "hard":
         tests = [test1, test2, test3]
-    return tests
+        return tests
 
+def test(test):
+    sentence = ""
+    current_test = test
+    current_test = current_test.pop()
+    for i in current_test:
+        sentence = sentence + i
+    return sentence
 
+def replace_word(blank, user_answer, answerlist):
+    pass
 
-print(pick_tests(get_difficulty()))
+print(test(pick_tests(get_difficulty())))
