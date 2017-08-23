@@ -6,7 +6,6 @@ answerlist = ["function", "variable", "class", "object"]
 
 difficulty = ""
 
-tests = []
 
 def get_answer():
     user_answer = input("What is your answer? ")
@@ -35,20 +34,24 @@ def pick_tests(difficulty):
         return tests
     elif difficulty == "medium":
         tests = [test1, test2]
-        return tests
+        return list(map(lambda x: print(x), tests))
     elif difficulty == "hard":
         tests = [test1, test2, test3]
-        return tests
+        return list(map(lambda x: print(x), tests))
 
 def test(test):
-    sentence = ""
-    current_test = test
-    current_test = current_test.pop()
-    for i in current_test:
-        sentence = sentence + i
-    return sentence
+    current_test = test.pop()
+    sentence = str(current_test)
+    for word in sentence.split():
+
 
 def replace_word(blank, user_answer, answerlist):
     pass
 
 print(test(pick_tests(get_difficulty())))
+# # Checks if a word in parts_of_speech is a substring of the word passed in.
+# def word_in_pos(word, parts_of_speech):
+#     for pos in parts_of_speech:
+#         if pos in word:
+#             return pos
+#     return None
