@@ -34,24 +34,27 @@ def pick_tests(difficulty):
         return tests
     elif difficulty == "medium":
         tests = [test1, test2]
-        return list(map(lambda x: print(x), tests))
+        return list(map(lambda x: x, tests))
     elif difficulty == "hard":
         tests = [test1, test2, test3]
-        return list(map(lambda x: print(x), tests))
+        return list(map(lambda x: x, tests))
 
 def test(test):
+    blank = "__1__"
     current_test = test.pop()
     sentence = str(current_test)
     for word in sentence.split():
+        if word.startswith(blank):
+            print(current_test, word)
+            answer = get_answer()
+            blank = replace_word(answer, answerlist)
+            print(current_test)
 
 
-def replace_word(blank, user_answer, answerlist):
-    pass
+def replace_word(user_answer, answerlist):
+    for ans_list in answerlist:
+        if ans_list in user_answer:
+            return ans_list
+    return None
 
 print(test(pick_tests(get_difficulty())))
-# # Checks if a word in parts_of_speech is a substring of the word passed in.
-# def word_in_pos(word, parts_of_speech):
-#     for pos in parts_of_speech:
-#         if pos in word:
-#             return pos
-#     return None
