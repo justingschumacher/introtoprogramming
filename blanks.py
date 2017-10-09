@@ -1,6 +1,3 @@
-import numpy
-import scipy
-import matplotlib
 
 
 # Predefined tests section
